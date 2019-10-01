@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for save_action project
+# Scrapy settings for new_spider project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,28 +9,21 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'save_action'
+BOT_NAME = 'new_spider'
 
-SPIDER_MODULES = ['save_action.spiders']
-NEWSPIDER_MODULE = 'save_action.spiders'
+SPIDER_MODULES = ['new_spider.spiders']
+NEWSPIDER_MODULE = 'new_spider.spiders'
+
+
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'save_action (+http://www.yourdomain.com)'
+#USER_AGENT = 'new_spider (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
-LOG_LEVEL='INFO'
 
-NUMBER_OF_ACCOUNTS=10
-ACCOUNT_NUMBER=0
-
-# mysql
-# MYSQL_HOST='localhost'
-# MYSQL_DATABASE='item_test_2'
-# MYSQL_PORT=3306
-# MYSQL_USER='root'
-# MYSQL_PASSWORD='root'
+HEADERS={"User-Agent":'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36'}
 
 MYSQL_HOST=
 MYSQL_DATABASE=
@@ -38,9 +31,10 @@ MYSQL_PORT=
 MYSQL_USER=
 MYSQL_PASSWORD=
 
-COOKIES=
-HEADERS={"User-Agent":'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36'}
-
+ROWS=24
+SORT='saleStart'
+CATEGORIES=['art/1','jewelry/6','furniture/4','collectibles/2']
+LOG_LEVEL='INFO'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -68,13 +62,13 @@ HEADERS={"User-Agent":'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'save_action.middlewares.SaveActionSpiderMiddleware': 543,
+#    'new_spider.middlewares.NewSpiderSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'save_action.middlewares.SaveActionDownloaderMiddleware': 543,
+#    'new_spider.middlewares.NewSpiderDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -86,14 +80,14 @@ HEADERS={"User-Agent":'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'save_action.pipelines.SaveActionPipeline': 300,
+   'new_spider.pipelines.NewSpiderPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True
 # The initial download delay
-#AUTOTHROTTLE_START_DELAY = 5
+AUTOTHROTTLE_START_DELAY = 1
 # The maximum download delay to be set in case of high latencies
 #AUTOTHROTTLE_MAX_DELAY = 60
 # The average number of requests Scrapy should be sending in parallel to

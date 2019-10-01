@@ -5,13 +5,9 @@
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
-
 import pymysql
-import logging
-from save_action.items import *
 
-
-class SaveActionPipeline(object):
+class NewSpiderPipeline(object):
     """
     存入mysql中
     """
